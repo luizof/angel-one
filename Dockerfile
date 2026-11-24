@@ -8,7 +8,7 @@ COPY web/ ./
 RUN npm run check && npm run build
 
 FROM --platform=linux/amd64 rust:1.99-alpine AS backend
-RUN apk add --no-cache build-base cmake perl openssl-dev
+RUN apk add --no-cache build-base cmake perl openssl-dev openssl-libs-static
 ENV CARGO_TARGET_DIR=/src/target
 WORKDIR /src
 COPY routing/ ./routing/
@@ -19,7 +19,7 @@ RUN --mount=type=cache,target=/usr/local/cargo/registry \
     cp target/release/angel-one /usr/local/bin/angel-one
 
 FROM --platform=linux/amd64 alpine:3.22
-RUN apk add --no-cache ca-certificates libssl3 && \
+RUN apk add --no-cache ca-certificates && \
     addgroup -S -g 10001 angel && adduser -S -D -H -u 10001 -G angel angel && \
     mkdir -p /data /srv/web && chown angel:angel /data
 COPY --from=backend /usr/local/bin/angel-one /usr/local/bin/angel-one

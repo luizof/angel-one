@@ -18,7 +18,7 @@ Na pasta `app`, use `bash preview.sh build`, depois `bash preview.sh start`. `ba
 
 ## Publicar no Unraid
 
-O workflow `.github/workflows/docker.yml` testa e publica `ghcr.io/luizof/angel-one:latest` a cada push em `main` e uma tag imutável `sha-...`. A imagem é apenas `linux/amd64` (Unraid x86_64), com Rust musl, frontend pronto e base Alpine pequena (inclui libssl para Web Push).
+O workflow `.github/workflows/docker.yml` testa e publica `ghcr.io/luizof/angel-one:latest` a cada push em `main` e uma tag imutável `sha-...`. A imagem é apenas `linux/amd64` (Unraid x86_64), com binário Rust musl (OpenSSL vinculado estaticamente), frontend pronto e base Alpine pequena.
 
 No formulário **Add Container** do Unraid:
 
@@ -33,6 +33,6 @@ O arquivo `compose.unraid.yml` contém a mesma configuração. Antes de usá-lo,
 ## Teste no iPhone
 
 1. No Safari, toque quatro vezes no logo e cadastre seu nome. Em **Despensa**, crie um grupo em litros e um item com conteúdo de 750 ml e quantidade fracionária. Confira o total do grupo, registre uma compra e faça a conferência.
-2. Em **Destinos**, marque um ponto no mar, selecione o abrigo do vento e salve. Em outro aparelho, vote e confira a contagem no primeiro. Permita localização para ver a distância.
+2. Em **Destinos**, marque um ponto no mar, selecione o abrigo do vento e salve. Em outro aparelho, vote e confira a contagem no primeiro. Os votos recomeçam às **00h e 12h de Florianópolis**. Permita localização para ver a distância; o vento sempre vem do ponto fixo ao norte de Jurerê, nunca do GPS do visitante.
 3. No **Bar**, cadastre um item e faça um pedido como passageiro indicando quem vai receber. Em **Comandas**, passe de recebido para preparando e pronto. O pedido não altera o estoque.
 4. Para testar push, instale pelo menu **Compartilhar → Adicionar à Tela de Início**. Abra pelo ícone e habilite os avisos. Use o mesmo link nos dois aparelhos; permissões e inscrições pertencem àquele endereço.

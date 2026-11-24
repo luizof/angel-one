@@ -258,6 +258,7 @@ check "rotas com NaN → 400" 400
 section "Previsão (Open-Meteo real)"
 call GET /api/weather
 check "GET /api/weather: horas de hoje e amanhã" 200 'j["timezone"] == "America/Sao_Paulo" and len(j["hours"]) >= 24 and all(set(x) == {"time","wind_kn","gust_kn","wind_dir","wave_m","wave_dir","swell_m","swell_dir"} for x in j["hours"]) and any(isinstance(x["wind_kn"], (int, float)) for x in j["hours"]) and j["updated_at"].endswith("Z")'
+check "vento sempre no ponto ao norte de Jurerê, não no GPS" 200 'j["location"] == "Jurerê Internacional" and j["lat"] == -27.425 and j["lon"] == -48.495'
 echo "    $(python3 -I -c 'import json,sys; j=json.load(open(sys.argv[1])); hs=j["hours"]; print(len(hs), "horas;", sum(1 for x in hs if x["wave_m"] is not None), "com ondas; primeira:", hs[0])' "$TMP/body")"
 call GET /api/weather
 check "segunda chamada vem do cache" 200 'len(j["hours"]) >= 24'

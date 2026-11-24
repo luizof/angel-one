@@ -1,6 +1,25 @@
-@import '@fontsource-variable/fredoka';
-@import '@fontsource-variable/nunito';
-@import '@fontsource/great-vibes';
+/* Somente o subconjunto latino: português sem fontes hebraicas/cirílicas. */
+@font-face {
+  font-family: 'Fredoka Variable';
+  src: url('@fontsource-variable/fredoka/files/fredoka-latin-wght-normal.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Nunito Variable';
+  src: url('@fontsource-variable/nunito/files/nunito-latin-wght-normal.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Great Vibes';
+  src: url('@fontsource/great-vibes/files/great-vibes-latin-400-normal.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 /* ------------------------------------------------------------------
    Temas por momento do dia (o app inteiro muda junto com a capa)

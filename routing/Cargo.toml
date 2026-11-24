@@ -1,0 +1,12 @@
+[package]
+name = "water_routing"
+version = "0.1.0"
+edition = "2021"
+description = "Distância pela água (desviando de terra) no norte da Ilha de Santa Catarina"
+publish = false
+
+[lib]
+name = "water_routing"
+path = "src/lib.rs"
+
+[dependencies]

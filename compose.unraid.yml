@@ -1,0 +1,17 @@
+# Alternativa ao formulário de containers do Unraid.
+# No Unraid, configure OPENROUTER_API_KEY no ambiente; nunca no repositório.
+services:
+  angel-one:
+    image: ghcr.io/luizof/angel-one:latest
+    container_name: angel-one
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: "8080"
+      DATA_DIR: /data
+      WEB_DIR: /srv/web
+      TZ_NAME: America/Sao_Paulo
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+    volumes:
+      - /mnt/user/appdata/angel-one:/data

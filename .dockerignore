@@ -1,0 +1,13 @@
+.git
+.github
+.env*
+data
+assets-src
+web/node_modules
+web/dist
+**/target
+tools
+**/tests
+**/examples
+**/*.md
+preview.sh

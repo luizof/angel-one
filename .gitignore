@@ -1,0 +1,12 @@
+data/
+assets-src/
+web/node_modules
+web/dist
+**/target/
+tools/cache/
+.env
+.env.*
+*.sqlite3
+*.sqlite3-*
+*key*.md
+*chave*.md
